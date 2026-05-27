@@ -1,0 +1,6 @@
+"./main.obj"
+"./tm4c1294ncpdt_startup_ccs.obj"
+"./src/NVIC.obj"
+"./src/UART.obj"
+"../tm4c1294ncpdt.cmd"
+-llibc.a

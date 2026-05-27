@@ -1,0 +1,270 @@
+******************************************************************************
+                  TI ARM Linker PC v20.2.7                     
+******************************************************************************
+>> Linked Wed May 27 01:52:14 2026
+
+OUTPUT FILE NAME:   <MISSION_BOSS_v2.out>
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 00000f5d
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00100000  00000ffc  000ff004  R  X
+  SRAM                  20000000   00040000  0000028b  0003fd75  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00000ffc   00000ffc    r-x
+  00000000    00000000    00000208   00000208    r-- .intvecs
+  00000208    00000208    00000de0   00000de0    r-x .text
+  00000fe8    00000fe8    00000014   00000014    r-- .cinit
+20000000    20000000    0000028b   00000000    rw-
+  20000000    20000000    00000200   00000000    rw- .stack
+  20000200    20000200    0000008b   00000000    rw- .bss
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    00000208     
+                  00000000    00000208     tm4c1294ncpdt_startup_ccs.obj (.intvecs)
+
+.text      0    00000208    00000de0     
+                  00000208    00000570     NVIC.obj (.text)
+                  00000778    00000568     UART.obj (.text)
+                  00000ce0    000001b6     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_add_t2.asm.obj (.text)
+                  00000e96    00000048                                   : fd_toi_t2.asm.obj (.text)
+                  00000ede    00000002     --HOLE-- [fill = 0]
+                  00000ee0    00000044                                   : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
+                  00000f24    00000038                                   : fs_tod_t2.asm.obj (.text)
+                  00000f5c    00000034                                   : boot_cortex_m.c.obj (.text:_c_int00_noargs:_c_int00_noargs)
+                  00000f90    00000028     main.obj (.text)
+                  00000fb8    0000001c     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init_nomemset:__TI_zero_init_nomemset)
+                  00000fd4    0000000c     tm4c1294ncpdt_startup_ccs.obj (.text)
+                  00000fe0    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
+                  00000fe4    00000004                                   : exit.c.obj (.text:abort:abort)
+
+.cinit     0    00000fe8    00000014     
+                  00000fe8    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00000ff0    00000004     (__TI_handler_table)
+                  00000ff4    00000008     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.bss       0    20000200    0000008b     UNINITIALIZED
+                  20000200    00000028     (.common:MASTER_DataReceived_DATA)
+                  20000228    00000028     (.common:PC_DataReceived_DATA)
+                  20000250    00000028     (.common:SUPERVISOR_DataReceived_DATA)
+                  20000278    00000001     (.common:MASTER_DataReceived_COMMAND_ID)
+                  20000279    00000001     (.common:MASTER_DataReceived_CRC_LSB)
+                  2000027a    00000001     (.common:MASTER_DataReceived_CRC_MSB)
+                  2000027b    00000001     (.common:MASTER_DataReceived_DATA_SIZE)
+                  2000027c    00000001     (.common:MASTER_DataReceived_STOP_BYTE)
+                  2000027d    00000001     (.common:MASTER_DataReceived_SUBSYSTEM_ID)
+                  2000027e    00000001     (.common:PC_DataReceived_COMMAND_ID)
+                  2000027f    00000001     (.common:PC_DataReceived_CRC_LSB)
+                  20000280    00000001     (.common:PC_DataReceived_CRC_MSB)
+                  20000281    00000001     (.common:PC_DataReceived_DATA_SIZE)
+                  20000282    00000001     (.common:PC_DataReceived_SCMI_SUBSYSTEM)
+                  20000283    00000001     (.common:PC_DataReceived_STOP_BYTE)
+                  20000284    00000001     (.common:PC_DataReceived_SUBSYSTEM_ID)
+                  20000285    00000001     (.common:SUPERVISOR_DataReceived_COMMAND_ID)
+                  20000286    00000001     (.common:SUPERVISOR_DataReceived_CRC_LSB)
+                  20000287    00000001     (.common:SUPERVISOR_DataReceived_CRC_MSB)
+                  20000288    00000001     (.common:SUPERVISOR_DataReceived_DATA_SIZE)
+                  20000289    00000001     (.common:SUPERVISOR_DataReceived_STOP_BYTE)
+                  2000028a    00000001     (.common:SUPERVISOR_DataReceived_SUBSYSTEM_ID)
+
+.stack     0    20000000    00000200     UNINITIALIZED
+                  20000000    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.stack)
+                  20000004    000001fc     --HOLE--
+
+__llvm_prf_cnts 
+*          0    20000000    00000000     UNINITIALIZED
+
+MODULE SUMMARY
+
+       Module                          code   ro data   rw data
+       ------                          ----   -------   -------
+    .\
+       tm4c1294ncpdt_startup_ccs.obj   12     520       0      
+       main.obj                        40     0         139    
+    +--+-------------------------------+------+---------+---------+
+       Total:                          52     520       139    
+                                                               
+    .\src\
+       NVIC.obj                        1392   0         0      
+       UART.obj                        1384   0         0      
+    +--+-------------------------------+------+---------+---------+
+       Total:                          2776   0         0      
+                                                               
+    D:\ti\ccs1281\ccs\tools\compiler\ti-cgt-arm_20.2.7.LTS\lib\rtsv7M4_T_le_v4SPD16_eabi.lib
+       fd_add_t2.asm.obj               438    0         0      
+       fd_toi_t2.asm.obj               72     0         0      
+       autoinit.c.obj                  68     0         0      
+       fs_tod_t2.asm.obj               56     0         0      
+       boot_cortex_m.c.obj             52     0         0      
+       copy_zero_init.c.obj            28     0         0      
+       exit.c.obj                      4      0         0      
+       pre_init.c.obj                  4      0         0      
+    +--+-------------------------------+------+---------+---------+
+       Total:                          722    0         0      
+                                                               
+       Stack:                          0      0         512    
+       Linker Generated:               0      20        0      
+    +--+-------------------------------+------+---------+---------+
+       Grand Total:                    3550   540       651    
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00000ff4 records: 1, size/record: 8, table size: 8
+	.bss: load addr=00000fe8, load size=00000008 bytes, run addr=20000200, run size=0000008b bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00000ff0 records: 1, size/record: 4, table size: 4
+	index: 0, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                                
+-------   ----                                
+00000fe5  C$$EXIT                             
+20000278  MASTER_DataReceived_COMMAND_ID      
+20000279  MASTER_DataReceived_CRC_LSB         
+2000027a  MASTER_DataReceived_CRC_MSB         
+20000200  MASTER_DataReceived_DATA            
+2000027b  MASTER_DataReceived_DATA_SIZE       
+2000027c  MASTER_DataReceived_STOP_BYTE       
+2000027d  MASTER_DataReceived_SUBSYSTEM_ID    
+2000027e  PC_DataReceived_COMMAND_ID          
+2000027f  PC_DataReceived_CRC_LSB             
+20000280  PC_DataReceived_CRC_MSB             
+20000228  PC_DataReceived_DATA                
+20000281  PC_DataReceived_DATA_SIZE           
+20000282  PC_DataReceived_SCMI_SUBSYSTEM      
+20000283  PC_DataReceived_STOP_BYTE           
+20000284  PC_DataReceived_SUBSYSTEM_ID        
+00000fd5  ResetISR                            
+20000285  SUPERVISOR_DataReceived_COMMAND_ID  
+20000286  SUPERVISOR_DataReceived_CRC_LSB     
+20000287  SUPERVISOR_DataReceived_CRC_MSB     
+20000250  SUPERVISOR_DataReceived_DATA        
+20000288  SUPERVISOR_DataReceived_DATA_SIZE   
+20000289  SUPERVISOR_DataReceived_STOP_BYTE   
+2000028a  SUPERVISOR_DataReceived_SUBSYSTEM_ID
+00000209  UART0_Handler                       
+00000779  UART0_Init                          
+00000451  UART4_Handler                       
+00000901  UART4_Init                          
+000005c9  UART7_Handler                       
+00000aad  UART7_Init                          
+20000200  __STACK_END                         
+00000200  __STACK_SIZE                        
+20000200  __STACK_TOP                         
+00000ff4  __TI_CINIT_Base                     
+00000ffc  __TI_CINIT_Limit                    
+00000ff0  __TI_Handler_Table_Base             
+00000ff4  __TI_Handler_Table_Limit            
+00000ee1  __TI_auto_init_nobinit_nopinit      
+ffffffff  __TI_pprof_out_hndl                 
+ffffffff  __TI_prof_data_size                 
+ffffffff  __TI_prof_data_start                
+00000000  __TI_static_base__                  
+00000fb9  __TI_zero_init_nomemset             
+00000e97  __aeabi_d2iz                        
+00000ceb  __aeabi_dadd                        
+00000ce1  __aeabi_dsub                        
+00000f25  __aeabi_f2d                         
+ffffffff  __binit__                           
+ffffffff  __c_args__                          
+UNDEFED   __mpu_init                          
+20000000  __stack                             
+20000000  __start___llvm_prf_cnts             
+20000000  __stop___llvm_prf_cnts              
+00000f5d  _c_int00_noargs                     
+UNDEFED   _system_post_cinit                  
+00000fe1  _system_pre_init                    
+00000fe5  abort                               
+ffffffff  binit                               
+00000000  g_pfnVectors                        
+00000f91  main                                
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                                
+-------   ----                                
+00000000  __TI_static_base__                  
+00000000  g_pfnVectors                        
+00000200  __STACK_SIZE                        
+00000209  UART0_Handler                       
+00000451  UART4_Handler                       
+000005c9  UART7_Handler                       
+00000779  UART0_Init                          
+00000901  UART4_Init                          
+00000aad  UART7_Init                          
+00000ce1  __aeabi_dsub                        
+00000ceb  __aeabi_dadd                        
+00000e97  __aeabi_d2iz                        
+00000ee1  __TI_auto_init_nobinit_nopinit      
+00000f25  __aeabi_f2d                         
+00000f5d  _c_int00_noargs                     
+00000f91  main                                
+00000fb9  __TI_zero_init_nomemset             
+00000fd5  ResetISR                            
+00000fe1  _system_pre_init                    
+00000fe5  C$$EXIT                             
+00000fe5  abort                               
+00000ff0  __TI_Handler_Table_Base             
+00000ff4  __TI_CINIT_Base                     
+00000ff4  __TI_Handler_Table_Limit            
+00000ffc  __TI_CINIT_Limit                    
+20000000  __stack                             
+20000000  __start___llvm_prf_cnts             
+20000000  __stop___llvm_prf_cnts              
+20000200  MASTER_DataReceived_DATA            
+20000200  __STACK_END                         
+20000200  __STACK_TOP                         
+20000228  PC_DataReceived_DATA                
+20000250  SUPERVISOR_DataReceived_DATA        
+20000278  MASTER_DataReceived_COMMAND_ID      
+20000279  MASTER_DataReceived_CRC_LSB         
+2000027a  MASTER_DataReceived_CRC_MSB         
+2000027b  MASTER_DataReceived_DATA_SIZE       
+2000027c  MASTER_DataReceived_STOP_BYTE       
+2000027d  MASTER_DataReceived_SUBSYSTEM_ID    
+2000027e  PC_DataReceived_COMMAND_ID          
+2000027f  PC_DataReceived_CRC_LSB             
+20000280  PC_DataReceived_CRC_MSB             
+20000281  PC_DataReceived_DATA_SIZE           
+20000282  PC_DataReceived_SCMI_SUBSYSTEM      
+20000283  PC_DataReceived_STOP_BYTE           
+20000284  PC_DataReceived_SUBSYSTEM_ID        
+20000285  SUPERVISOR_DataReceived_COMMAND_ID  
+20000286  SUPERVISOR_DataReceived_CRC_LSB     
+20000287  SUPERVISOR_DataReceived_CRC_MSB     
+20000288  SUPERVISOR_DataReceived_DATA_SIZE   
+20000289  SUPERVISOR_DataReceived_STOP_BYTE   
+2000028a  SUPERVISOR_DataReceived_SUBSYSTEM_ID
+ffffffff  __TI_pprof_out_hndl                 
+ffffffff  __TI_prof_data_size                 
+ffffffff  __TI_prof_data_start                
+ffffffff  __binit__                           
+ffffffff  __c_args__                          
+ffffffff  binit                               
+UNDEFED   __mpu_init                          
+UNDEFED   _system_post_cinit                  
+
+[60 symbols]
